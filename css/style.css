@@ -117,14 +117,19 @@ ul { list-style: none; }
 }
 
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
   transition: opacity var(--transition);
 }
 .nav-logo:hover { opacity: 0.8; }
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -987,6 +992,20 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+}
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+.footer-logo-link:hover { opacity: 1; }
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
 }
 .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
 
