@@ -1393,66 +1393,188 @@ ul { list-style: none; }
 .sec-extra-item svg { flex-shrink: 0; margin-top: 2px; }
 
 /* ═══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — 1200px large desktop
 ═══════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .bento-grid { grid-template-columns: repeat(4, 1fr); }
-  .bento-featured { grid-column: span 4; }
-  .bento-wide   { grid-column: span 2; }
-  .bento-wide-2 { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 10px; }
+@media (max-width: 1200px) {
+  .hero-logo-visual { width: 320px; height: 320px; }
 }
 
+/* ═══════════════════════════════════════
+   RESPONSIVE — 1024px tablet landscape
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-content     { gap: 40px; }
+  .hero-logo-visual { width: 260px; height: 260px; }
+
+  .bento-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bento-card    { grid-column: span 2; }
+  .bento-wide    { grid-column: span 2; }
+  .bento-wide-2  { grid-column: span 4; flex-direction: row; align-items: center; }
+  .bento-featured{ grid-column: span 4; }
+  .bento-accent  { grid-column: span 2; }
+
+  .contact-cards { max-width: 100%; }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — 768px tablet portrait
+═══════════════════════════════════════ */
 @media (max-width: 768px) {
   :root { --nav-h: 62px; }
-  .section { padding: 72px 0; }
+
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section-header { margin-bottom: 40px; }
+
+  /* ── Navbar ── */
   .nav-links, .btn-nav { display: none; }
   .nav-burger { display: flex; }
 
-  /* Hero: stack vertically, hide logo visual */
-  .hero-content      { flex-direction: column; gap: 0; }
-  .hero-logo-visual  { display: none; }
-  .hero-text-col     { gap: 22px; }
-
-  .hero-stats {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 16px 12px;
+  /* ── Hero ── */
+  .hero-section { padding: calc(var(--nav-h) + 28px) 0 56px; }
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
   }
-  .stat-card { padding: 0 16px; }
+  .hero-logo-visual {
+    width: 180px;
+    height: 180px;
+    align-self: center;
+    margin: 0 auto;
+  }
+  .hero-text-col { gap: 20px; width: 100%; }
+  .hero-tagline  { font-size: 0.97rem; max-width: 100%; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 0;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    padding: 16px 12px;
+    border-radius: 0;
+  }
+  .stat-value { font-size: 1.6rem; }
   .stat-divider { display: none; }
 
-  .about-grid { grid-template-columns: 1fr; gap: 36px; }
-  .bento-grid { grid-template-columns: 1fr 1fr; }
-  .bento-card, .bento-wide, .bento-wide-2, .bento-featured { grid-column: span 2; }
-  .bento-accent { grid-column: span 2; }
+  /* ── About ── */
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
 
-  .projects-grid { grid-template-columns: 1fr; }
-  .project-featured { grid-column: span 1; grid-template-columns: 1fr; }
+  /* ── Bento ── */
+  .bento-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bento-card, .bento-wide, .bento-featured, .bento-accent { grid-column: span 2; }
+  .bento-wide-2 { grid-column: span 2; flex-direction: row; align-items: center; }
+
+  /* ── Projects ── */
+  .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+  .project-featured {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+  }
   .project-featured-visual { display: none; }
 
-  .contact-cards { grid-template-columns: 1fr; }
+  /* ── Timeline ── */
+  .timeline::before  { left: 16px; }
+  .timeline-item     { padding-left: 48px; padding-bottom: 32px; }
+  .timeline-dot      { left: 8px; width: 16px; height: 16px; }
+  .timeline-header   { flex-direction: column; gap: 3px; align-items: flex-start; }
+  .timeline-date     { margin-top: 0; }
+  .timeline-content  { padding: 20px; }
 
-  .infra-grid      { grid-template-columns: 1fr; }
-  .sec-extras-grid { grid-template-columns: 1fr; }
+  /* ── Contact ── */
+  .contact-cards { grid-template-columns: 1fr; max-width: 520px; }
 
-  /* Modal arch: hide desktop layout, show linear mobile flow */
+  /* ── Footer ── */
+  .footer-inner { gap: 12px; }
+
+  /* ── Modal ── */
+  .modal-overlay    { padding: 0; align-items: flex-end; }
+  .modal-container  {
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-header     { position: relative; padding: 20px 20px 16px; }
+  .modal-close      { position: absolute; top: 20px; right: 20px; }
+  .modal-title      { font-size: 1.2rem; padding-right: 48px; }
+  .modal-subtitle   { font-size: 0.85rem; }
+  .modal-body       { padding: 20px; gap: 24px; flex: 1; overflow-y: auto; }
+  .infra-grid       { grid-template-columns: 1fr; }
+  .sec-extras-grid  { grid-template-columns: 1fr; }
   .arch-diagram     { display: none; }
   .arch-mobile-flow { display: flex; }
-
-  /* Modal sizing on mobile */
-  .modal-container  { border-radius: 14px; }
-  .modal-header     { padding: 20px; flex-direction: column; gap: 12px; }
-  .modal-close      { align-self: flex-end; margin-top: -36px; }
-  .modal-body       { padding: 20px; gap: 24px; max-height: 80vh; }
 }
 
+/* ═══════════════════════════════════════
+   RESPONSIVE — 480px small phone
+═══════════════════════════════════════ */
 @media (max-width: 480px) {
-  .hero-name { letter-spacing: -2px; }
-  .hero-ctas { flex-direction: column; }
-  .hero-ctas a, .hero-ctas button { width: 100%; justify-content: center; }
-  .bento-grid { grid-template-columns: 1fr; }
-  .bento-card, .bento-wide, .bento-wide-2, .bento-featured { grid-column: span 1; }
-  .modal-body { padding: 20px; }
-  .modal-header { padding: 20px; }
+  :root { --nav-h: 58px; }
+
+  .container { padding: 0 16px; }
+  .section { padding: 52px 0; }
+  .section-header { margin-bottom: 28px; }
+  .section-title  { letter-spacing: -1px; }
+
+  /* ── Hero ── */
+  .hero-logo-visual { width: 130px; height: 130px; }
+  .hero-name        { letter-spacing: -1.5px; }
+  .hero-role        { font-size: clamp(0.85rem, 4vw, 1rem); }
+  .hero-tagline     { font-size: 0.9rem; }
+  .hero-ctas        { flex-direction: column; gap: 10px; }
+  .hero-ctas a      { width: 100%; justify-content: center; text-align: center; }
+  .stat-value       { font-size: 1.4rem; }
+  .stat-label       { font-size: 0.7rem; }
+
+  /* ── About ── */
+  .about-text p     { font-size: 0.95rem; }
+  .code-body        { font-size: 0.8rem; padding: 16px; }
+
+  /* ── Bento ── */
+  .bento-grid { grid-template-columns: 1fr; gap: 10px; }
+  .bento-card, .bento-wide, .bento-wide-2,
+  .bento-featured, .bento-accent { grid-column: span 1; }
+  .bento-wide-2 { flex-direction: row; align-items: center; }
+
+  /* ── Projects ── */
+  .project-card  { padding: 20px; }
+  .project-title { font-size: 1.2rem; }
+
+  /* ── Timeline ── */
+  .timeline::before { left: 12px; top: 20px; }
+  .timeline-item    { padding-left: 36px; padding-bottom: 28px; }
+  .timeline-dot     { left: 4px; width: 14px; height: 14px; top: 4px; }
+  .timeline-content { padding: 16px; }
+  .timeline-title   { font-size: 1rem; }
+
+  /* ── Contact ── */
+  .contact-cards      { max-width: 100%; }
+  .contact-card       { padding: 18px 14px; gap: 12px; }
+  .contact-card-icon  { width: 46px; height: 46px; }
+  .contact-card-value { font-size: 0.82rem; word-break: break-all; }
+
+  /* ── Footer ── */
+  .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-back  { margin: 0 auto; }
+  .footer-logo-link { margin: 0 auto; }
+
+  /* ── Modal ── */
+  .modal-container  { border-radius: 16px 16px 0 0; }
+  .modal-header     { padding: 16px; }
+  .modal-close      { top: 16px; right: 16px; }
+  .modal-title      { font-size: 1.05rem; }
+  .modal-body       { padding: 16px; gap: 20px; }
+  .sec-level        { gap: 10px; }
+  .sec-badge        { width: 32px; height: 32px; font-size: 0.72rem; }
+  .sec-content strong { font-size: 0.88rem; }
 }
