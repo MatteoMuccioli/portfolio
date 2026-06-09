@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Matteo Muccioli — Software Engineer & Web Developer. Portfolio professionale: AI, RAG, Angular, Python, Oracle Cloud.">
+  <meta name="author" content="Matteo Muccioli">
+  <meta property="og:title" content="Matteo Muccioli — Software Engineer">
+  <meta property="og:description" content="Software Engineer specializzato in architetture AI/RAG, sviluppo web moderno e cloud infrastructure.">
+  <title>Matteo Muccioli — Software Engineer & Web Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            grotesk: ['Space Grotesk', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Navigazione principale">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Torna in cima">
+        MM<span class="text-cyan">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link">Chi sono</a></li>
+        <li><a href="#stack" class="nav-link">Stack</a></li>
+        <li><a href="#projects" class="nav-link">Progetti</a></li>
+        <li><a href="#experience" class="nav-link">Esperienza</a></li>
+        <li><a href="#contact" class="nav-link">Contatti</a></li>
+      </ul>
+      <a href="assets/cv-matteo-muccioli.pdf" download class="btn-nav" aria-label="Scarica curriculum vitae">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        CV
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Apri menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="navMobile" aria-hidden="true">
+      <a href="#about" class="nav-mobile-link">Chi sono</a>
+      <a href="#stack" class="nav-mobile-link">Stack</a>
+      <a href="#projects" class="nav-mobile-link">Progetti</a>
+      <a href="#experience" class="nav-mobile-link">Esperienza</a>
+      <a href="#contact" class="nav-mobile-link">Contatti</a>
+      <a href="assets/cv-matteo-muccioli.pdf" download class="nav-mobile-link cyan">Scarica CV</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-glow-orb" aria-hidden="true"></div>
+    <div class="hero-glow-orb-2" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Disponibile per nuove opportunità
+      </div>
+
+      <h1 class="hero-name reveal">
+        Matteo<br>
+        <span class="text-cyan">Muccioli</span>
+      </h1>
+
+      <div class="hero-role reveal">
+        <span class="typed-prefix">_&gt;&nbsp;</span>
+        <span id="typedText" class="typed-text" aria-label="Software Engineer &amp; Web Developer"></span>
+        <span class="typed-cursor" aria-hidden="true">|</span>
+      </div>
+
+      <p class="hero-tagline reveal">
+        Architetto di sistemi AI e pipeline RAG. Sviluppatore di esperienze web moderne.<br>
+        Italiano · English C2 · Problem-solver orientato al cliente.
+      </p>
+
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contattami
+        </a>
+        <a href="assets/cv-matteo-muccioli.pdf" download class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Scarica CV
+        </a>
+      </div>
+
+      <div class="hero-stats reveal">
+        <div class="stat-card">
+          <span class="stat-value">2+</span>
+          <span class="stat-label">Anni di<br>esperienza</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card">
+          <span class="stat-value">10+</span>
+          <span class="stat-label">Progetti<br>completati</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card">
+          <span class="stat-value">C2</span>
+          <span class="stat-label">English<br>Level</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card">
+          <span class="stat-value">AI</span>
+          <span class="stat-label">RAG &<br>LLM Focus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01 / Chi Sono</span>
+        <h2 class="section-title">Passione. <span class="text-cyan">Precisione.</span> Risultati.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Sono un <strong>Software Engineer</strong> con una forte passione per la costruzione di sistemi complessi e la risoluzione di problemi reali attraverso la tecnologia. Mi occupo di sviluppo web moderno, architetture cloud e integrazione di sistemi AI avanzati.
+          </p>
+          <p>
+            La mia curiosità mi spinge costantemente a esplorare nuovi paradigmi — dall'architettura RAG con database vettoriali, all'ottimizzazione di pipeline di inferenza su infrastrutture cloud con risorse limitate. Non mi accontento di soluzioni che "funzionano": voglio capire <em>perché</em> funzionano.
+          </p>
+          <p>
+            Anni di lavoro nel settore dell'accoglienza mi hanno insegnato che la tecnologia è sempre al servizio delle persone. Questo si riflette nel mio approccio: ascolto attivo, comunicazione chiara e un'attenzione maniacale alle esigenze del cliente finale.
+          </p>
+
+          <div class="about-tags">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Architetture RAG</span>
+            <span class="tag">Team Player</span>
+            <span class="tag">Clean Code</span>
+            <span class="tag">Italiano · English C2</span>
+          </div>
+        </div>
+
+        <div class="about-code reveal">
+          <div class="code-window">
+            <div class="code-titlebar" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-filename">matteo.json</span>
+            </div>
+            <pre class="code-body" aria-label="Profilo in formato JSON"><code><span class="c-brace">{</span>
+  <span class="c-key">"name"</span><span class="c-colon">:</span> <span class="c-str">"Matteo Muccioli"</span><span class="c-comma">,</span>
+  <span class="c-key">"role"</span><span class="c-colon">:</span> <span class="c-str">"Software Engineer"</span><span class="c-comma">,</span>
+  <span class="c-key">"location"</span><span class="c-colon">:</span> <span class="c-str">"Italia 🇮🇹"</span><span class="c-comma">,</span>
+  <span class="c-key">"languages"</span><span class="c-colon">:</span> <span class="c-brace">[</span>
+    <span class="c-str">"Italiano"</span><span class="c-comma">,</span>
+    <span class="c-str">"English (C2)"</span>
+  <span class="c-brace">]</span><span class="c-comma">,</span>
+  <span class="c-key">"focus"</span><span class="c-colon">:</span> <span class="c-brace">[</span>
+    <span class="c-str">"AI / RAG Systems"</span><span class="c-comma">,</span>
+    <span class="c-str">"Web Development"</span><span class="c-comma">,</span>
+    <span class="c-str">"Cloud Infrastructure"</span>
+  <span class="c-brace">]</span><span class="c-comma">,</span>
+  <span class="c-key">"available"</span><span class="c-colon">:</span> <span class="c-bool">true</span>
+<span class="c-brace">}</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TECH STACK
+  ═══════════════════════════════════════ -->
+  <section id="stack" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02 / Stack Tecnologico</span>
+        <h2 class="section-title">Strumenti del <span class="text-cyan">mestiere</span></h2>
+      </div>
+
+      <div class="bento-grid reveal">
+
+        <!-- Programming -->
+        <div class="bento-card bento-wide" aria-label="Linguaggi di programmazione">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <div class="bento-content">
+            <span class="bento-label">Programmazione</span>
+            <h3 class="bento-title">Python</h3>
+            <p class="bento-desc">Scripting, automazione, backend API (FastAPI), pipeline di data processing.</p>
+          </div>
+          <div class="bento-pill">Python 3.x</div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="bento-card bento-featured" aria-label="Sviluppo Front-End">
+          <span class="bento-label">Front-End Development</span>
+          <h3 class="bento-title">Web Moderno</h3>
+          <div class="bento-tech-list">
+            <span class="tech-badge html">HTML5</span>
+            <span class="tech-badge css">CSS3</span>
+            <span class="tech-badge js">JavaScript</span>
+            <span class="tech-badge ts">TypeScript</span>
+            <span class="tech-badge angular">Angular</span>
+          </div>
+          <p class="bento-desc">Interfacce responsive, componenti Angular, ES6+ e best practice moderne.</p>
+        </div>
+
+        <!-- Database -->
+        <div class="bento-card" aria-label="Database">
+          <div class="bento-icon small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="bento-label">Database</span>
+          <h3 class="bento-title">SQL & Vettoriali</h3>
+          <div class="bento-tech-list small">
+            <span class="tech-badge mysql">MySQL</span>
+            <span class="tech-badge qdrant">Qdrant</span>
+          </div>
+        </div>
+
+        <!-- AI / API -->
+        <div class="bento-card bento-accent" aria-label="AI e API">
+          <span class="bento-label">Intelligenza Artificiale</span>
+          <h3 class="bento-title">AI & LLM</h3>
+          <p class="bento-desc">Architetture RAG, embedding vettoriali, integrazione Google Gemini API.</p>
+          <div class="bento-tech-list small">
+            <span class="tech-badge gemini">Gemini API</span>
+            <span class="tech-badge rag">RAG Pipeline</span>
+          </div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="bento-card" aria-label="Cloud e infrastruttura">
+          <div class="bento-icon small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <span class="bento-label">Cloud & OS</span>
+          <h3 class="bento-title">Oracle Cloud</h3>
+          <div class="bento-tech-list small">
+            <span class="tech-badge oci">OCI</span>
+            <span class="tech-badge linux">Ubuntu Server</span>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="bento-card" aria-label="DevOps e containerizzazione">
+          <div class="bento-icon small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+          </div>
+          <span class="bento-label">DevOps</span>
+          <h3 class="bento-title">Containerizzazione</h3>
+          <div class="bento-tech-list small">
+            <span class="tech-badge podman">Podman</span>
+            <span class="tech-badge systemd">systemd</span>
+          </div>
+        </div>
+
+        <!-- Networking -->
+        <div class="bento-card bento-wide-2" aria-label="Networking">
+          <div class="bento-icon small">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <span class="bento-label">Networking</span>
+            <h3 class="bento-title">Reti & Protocolli</h3>
+            <p class="bento-desc">Configurazione reti, TCP/IP, bridge networking, gestione traffico interno Podman.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03 / Progetti</span>
+        <h2 class="section-title">Lavori in <span class="text-cyan">evidenza</span></h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- FEATURED: RAG Chatbot -->
+        <article class="project-card project-featured reveal" aria-label="Progetto principale: Chatbot RAG">
+          <div class="project-featured-inner">
+            <div class="project-meta">
+              <span class="project-tag ai">AI / RAG</span>
+              <span class="project-tag cloud">Oracle Cloud</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">Chatbot RAG — ITTS "O. Belluzzi"</h3>
+            <p class="project-desc">
+              Assistente conversazionale intelligente che risponde esclusivamente basandosi sui contenuti del sito WordPress della scuola. Architettura RAG full-stack su Oracle Cloud con sistema di sicurezza a 4 livelli.
+            </p>
+            <div class="project-stack">
+              <span class="stack-pill">FastAPI</span>
+              <span class="stack-pill">Qdrant</span>
+              <span class="stack-pill">Gemini 2.5</span>
+              <span class="stack-pill">Podman</span>
+              <span class="stack-pill">Oracle Cloud</span>
+              <span class="stack-pill">WordPress</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-primary" onclick="openModal('ragModal')" aria-label="Visualizza architettura tecnica dettagliata">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Architettura Dettagliata
+              </button>
+            </div>
+          </div>
+          <div class="project-featured-visual" aria-hidden="true">
+            <div class="rag-mini-diagram">
+              <div class="rmd-box">WordPress</div>
+              <div class="rmd-arrow">→</div>
+              <div class="rmd-box">Crawler</div>
+              <div class="rmd-arrow">→</div>
+              <div class="rmd-box accent">Qdrant</div>
+              <div class="rmd-arrow">→</div>
+              <div class="rmd-box">Gemini</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Calamaretta -->
+        <article class="project-card reveal" aria-label="Progetto Calamaretta">
+          <div class="project-meta">
+            <span class="project-tag web">Web Dev</span>
+            <span class="project-tag freelance">Freelance</span>
+          </div>
+          <h3 class="project-title">Ristorante Calamaretta</h3>
+          <p class="project-desc">
+            Sviluppo end-to-end del sito web per il ristorante Calamaretta a Viserbella. Ciclo di vita completo: design, sviluppo, messa in produzione e manutenzione.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">HTML5</span>
+            <span class="stack-pill">CSS3</span>
+            <span class="stack-pill">JavaScript</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://calamaretta.com" target="_blank" rel="noopener noreferrer" class="btn-secondary small" aria-label="Visita il sito Calamaretta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              calamaretta.com
+            </a>
+          </div>
+        </article>
+
+        <!-- E-commerce vini -->
+        <article class="project-card reveal" aria-label="Progetto E-commerce vini">
+          <div class="project-meta">
+            <span class="project-tag school">Progetto Scolastico</span>
+          </div>
+          <h3 class="project-title">E-commerce Vini</h3>
+          <p class="project-desc">
+            Piattaforma completa per la vendita online di vini. Implementazione di backend con gestione catalogo, carrello e pagamenti, più frontend responsive.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">HTML5</span>
+            <span class="stack-pill">CSS3</span>
+            <span class="stack-pill">JavaScript</span>
+            <span class="stack-pill">MySQL</span>
+          </div>
+        </article>
+
+        <!-- Videocorsi C# -->
+        <article class="project-card reveal" aria-label="Progetto Videocorsi C#">
+          <div class="project-meta">
+            <span class="project-tag school">Progetto Scolastico</span>
+          </div>
+          <h3 class="project-title">Pagina Videocorsi C#</h3>
+          <p class="project-desc">
+            Landing page responsive per la vendita di videocorsi C#. Design orientato alla conversione, ottimizzato per dispositivi mobile.
+          </p>
+          <div class="project-stack">
+            <span class="stack-pill">HTML5</span>
+            <span class="stack-pill">CSS3</span>
+            <span class="stack-pill">Responsive</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════ -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">04 / Esperienza</span>
+        <h2 class="section-title">Il mio <span class="text-cyan">percorso</span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Web Developer Intern</h3>
+                <p class="timeline-company">Gruppo Maggioli · Santarcangelo di Romagna</p>
+              </div>
+              <span class="timeline-date">2025</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Sviluppo web front-end con TypeScript, Angular, HTML5 e CSS3.</li>
+              <li>Progettazione di interfacce responsive e dinamiche secondo le best practice di settore.</li>
+              <li>Partecipazione a project work di gruppo per lo sviluppo di applicativi completi in team.</li>
+            </ul>
+            <div class="timeline-stack">
+              <span class="stack-pill small">TypeScript</span>
+              <span class="stack-pill small">Angular</span>
+              <span class="stack-pill small">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Freelance Web Developer</h3>
+                <p class="timeline-company">Progetto Calamaretta · Viserbella</p>
+              </div>
+              <span class="timeline-date">Recente</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Sviluppo end-to-end e vendita del sito web per il ristorante Calamaretta.</li>
+              <li>Gestione del ciclo di vita completo del software: dal design alla messa in produzione.</li>
+              <li>Primo cliente acquisito autonomamente nel mercato freelance locale.</li>
+            </ul>
+            <div class="timeline-stack">
+              <span class="stack-pill small">HTML5</span>
+              <span class="stack-pill small">CSS3</span>
+              <span class="stack-pill small">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Sviluppo Personale & Formazione</h3>
+                <p class="timeline-company">Self-directed · Ricerca & Sperimentazione</p>
+              </div>
+              <span class="timeline-date">In corso</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Architettura e deployment di chatbot RAG su infrastruttura Oracle Cloud Always Free.</li>
+              <li>Studio approfondito di sistemi LLM, database vettoriali e sicurezza applicativa.</li>
+              <li>Gestione di ambienti Linux con Podman (rootless architecture) e systemd.</li>
+            </ul>
+            <div class="timeline-stack">
+              <span class="stack-pill small">Python</span>
+              <span class="stack-pill small">RAG</span>
+              <span class="stack-pill small">Oracle Cloud</span>
+              <span class="stack-pill small">Podman</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">05 / Contatti</span>
+        <h2 class="section-title">Lavoriamo <span class="text-cyan">insieme</span></h2>
+        <p class="section-subtitle">Sono disponibile per posizioni full-time, contratti freelance e collaborazioni su progetti AI/Web. Scrivimi, rispondo entro 24h.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <a href="mailto:matteomuccioli49@gmail.com" class="contact-link" aria-label="Invia email a Matteo">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">matteomuccioli49@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/matteomuccioli" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Profilo GitHub di Matteo">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <div>
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">github.com/matteomuccioli</span>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/matteomuccioli" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Profilo LinkedIn di Matteo">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">linkedin.com/in/matteomuccioli</span>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate aria-label="Modulo di contatto">
+          <div class="form-group">
+            <label for="formName" class="form-label">Nome</label>
+            <input type="text" id="formName" name="name" class="form-input" placeholder="Il tuo nome" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="formEmail" class="form-label">Email</label>
+            <input type="email" id="formEmail" name="email" class="form-input" placeholder="tua@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="formMessage" class="form-label">Messaggio</label>
+            <textarea id="formMessage" name="message" class="form-input form-textarea" placeholder="Parlami del tuo progetto..." required rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-primary full" id="formSubmit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Invia Messaggio
+          </button>
+          <p class="form-success" id="formSuccess" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        &copy; <span id="footerYear"></span> Matteo Muccioli — Crafted with precision.
+      </p>
+      <a href="#hero" class="footer-back" aria-label="Torna in cima">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       MODAL: RAG ARCHITECTURE
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="ragModal" role="dialog" aria-modal="true" aria-labelledby="ragModalTitle" hidden>
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <div class="modal-tags">
+            <span class="project-tag ai">AI / RAG</span>
+            <span class="project-tag cloud">Oracle Cloud</span>
+            <span class="project-tag">Maggio 2026</span>
+          </div>
+          <h2 id="ragModalTitle" class="modal-title">Chatbot RAG — ITTS "O. Belluzzi - L. da Vinci"</h2>
+          <p class="modal-subtitle">Assistente conversazionale scolastico basato su Retrieval-Augmented Generation</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('ragModal')" aria-label="Chiudi modale">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Architecture Diagram -->
+        <div class="arch-section">
+          <h3 class="arch-section-title">Architettura del Sistema</h3>
+
+          <div class="arch-diagram" aria-label="Diagramma architettura RAG">
+
+            <!-- Column 1: Ingestion -->
+            <div class="arch-col">
+              <div class="arch-col-header">Ingestione</div>
+              <div class="arch-node source">
+                <span class="arch-node-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </span>
+                <span>WordPress<br><small>REST API</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node">
+                <span>HTML Crawler<br><small>Pulizia testo</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node">
+                <span>Chunking<br><small>Con overlap</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node accent">
+                <span>Gemini Embedding<br><small>gemini-embedding-001<br>768d</small></span>
+              </div>
+            </div>
+
+            <!-- Arrow horizontal -->
+            <div class="arch-h-arrow" aria-hidden="true">
+              <svg viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="12" x2="50" y2="12"/><polyline points="42,6 50,12 42,18"/></svg>
+              <span class="arch-h-label">/reindex</span>
+            </div>
+
+            <!-- Column 2: Vector Store -->
+            <div class="arch-col arch-col-center">
+              <div class="arch-col-header">Vector Store</div>
+              <div class="arch-node qdrant">
+                <span class="arch-node-icon large">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </span>
+                <span><strong>Qdrant</strong><br><small>Embedded mode<br>Cosine Similarity<br>768 dimensioni</small></span>
+              </div>
+              <div class="arch-cosine">
+                <div class="arch-cosine-label">Cosine Similarity</div>
+                <div class="arch-cosine-formula">A·B / (‖A‖·‖B‖)</div>
+              </div>
+            </div>
+
+            <!-- Arrow horizontal -->
+            <div class="arch-h-arrow" aria-hidden="true">
+              <svg viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="12" x2="50" y2="12"/><polyline points="42,6 50,12 42,18"/></svg>
+              <span class="arch-h-label">Top-K</span>
+            </div>
+
+            <!-- Column 3: Retrieval & Generation -->
+            <div class="arch-col">
+              <div class="arch-col-header">Retrieval & Generazione</div>
+              <div class="arch-node source">
+                <span>User Query<br><small>Input utente</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node">
+                <span>Query Embedding<br><small>768d</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node">
+                <span>Top-K Chunks<br><small>Recupero contestuale</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node accent">
+                <span>gemini-2.5-flash<br><small>v1beta · temp: 0.2</small></span>
+              </div>
+              <div class="arch-arrow-v">↓</div>
+              <div class="arch-node result">
+                <span>Risposta<br><small>Ancorata al contesto</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="modal-infra">
+          <h3 class="arch-section-title">Stack Infrastrutturale</h3>
+          <div class="infra-grid">
+            <div class="infra-item">
+              <span class="infra-label">Cloud</span>
+              <span class="infra-value">Oracle Cloud (VM Always Free · 1GB RAM)</span>
+            </div>
+            <div class="infra-item">
+              <span class="infra-label">OS</span>
+              <span class="infra-value">Ubuntu Server + systemd/linger</span>
+            </div>
+            <div class="infra-item">
+              <span class="infra-label">Container</span>
+              <span class="infra-value">Podman Rootless + Bridge Network interna</span>
+            </div>
+            <div class="infra-item">
+              <span class="infra-label">Backend</span>
+              <span class="infra-value">FastAPI (Python)</span>
+            </div>
+            <div class="infra-item">
+              <span class="infra-label">Vector DB</span>
+              <span class="infra-value">Qdrant Embedded</span>
+            </div>
+            <div class="infra-item">
+              <span class="infra-label">LLM</span>
+              <span class="infra-value">Google Gemini API (gemini-2.5-flash · v1beta)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Levels -->
+        <div class="modal-security">
+          <h3 class="arch-section-title">Sistema di Sicurezza a 4 Livelli</h3>
+          <div class="security-levels">
+            <div class="sec-level">
+              <div class="sec-badge">L1</div>
+              <div class="sec-content">
+                <strong>Filtro Applicativo</strong>
+                <p>Regex contro Prompt Injection, token speciali (es. &lt;im_start&gt;), Jailbreak. Limite lunghezza input.</p>
+              </div>
+            </div>
+            <div class="sec-level">
+              <div class="sec-badge">L2</div>
+              <div class="sec-content">
+                <strong>System Prompt Blindato</strong>
+                <p>Istruzioni di sistema isolate su canale prioritario Gemini, impossibili da sovrascrivere dall'utente.</p>
+              </div>
+            </div>
+            <div class="sec-level">
+              <div class="sec-badge">L3</div>
+              <div class="sec-content">
+                <strong>Ancoraggio al Contesto</strong>
+                <p>Temperatura 0.2 + frase di fallback obbligatoria quando nessun chunk è pertinente. Allucinazioni azzerate.</p>
+              </div>
+            </div>
+            <div class="sec-level">
+              <div class="sec-badge">L4</div>
+              <div class="sec-content">
+                <strong>Safety Filters Google</strong>
+                <p>Filtri nativi Google Gemini per contenuti dannosi come layer finale di protezione.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-extras">
+            <h4 class="sec-extras-title">Sicurezza di Contorno</h4>
+            <div class="sec-extras-grid">
+              <div class="sec-extra-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Nonce WordPress + Cloudflare Turnstile (anti-CSRF/bot)
+              </div>
+              <div class="sec-extra-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Rate limiting per IP
+              </div>
+              <div class="sec-extra-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Token Bearer per comunicazioni interne (nascosto a Internet)
+              </div>
+              <div class="sec-extra-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Retry con exponential backoff per errori 429/503
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
