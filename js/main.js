@@ -147,39 +147,89 @@ document.addEventListener('keydown', e => {
 window.openModal  = openModal;
 window.closeModal = closeModal;
 
-// ─── Contact form (mailto fallback) ────
-const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('formSubmit');
-const successMsg = document.getElementById('formSuccess');
+// ─── Hero canvas — particle network ────
+(function initParticles() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
+  // Respect reduced-motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
 
-  const name    = document.getElementById('formName').value.trim();
-  const email   = document.getElementById('formEmail').value.trim();
-  const message = document.getElementById('formMessage').value.trim();
+  const ctx = canvas.getContext('2d');
+  const CYAN = '6,182,212';
+  const INDIGO = '99,102,241';
+  const COUNT  = 72;
+  const DIST   = 140;
+  const SPEED  = 0.35;
 
-  if (!name || !email || !message) return;
+  let W, H, particles, raf;
 
-  // Disable button during "send"
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Invio in corso…';
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
 
-  // Compose mailto link as fallback (no backend needed for static hosting)
-  const subject = encodeURIComponent(`Contatto Portfolio — ${name}`);
-  const body    = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\n${message}`);
-  const mailto  = `mailto:matteomuccioli49@gmail.com?subject=${subject}&body=${body}`;
+  function spawn() {
+    particles = Array.from({ length: COUNT }, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * SPEED,
+      vy: (Math.random() - 0.5) * SPEED,
+      r:  Math.random() * 1.4 + 0.5,
+      c:  Math.random() > 0.7 ? INDIGO : CYAN,
+    }));
+  }
 
-  setTimeout(() => {
-    window.location.href = mailto;
-    successMsg.textContent = 'Apertura client email… In alternativa scrivimi direttamente a matteomuccioli49@gmail.com';
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      Invia Messaggio`;
-    form.reset();
-  }, 600);
-});
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Move
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+
+    // Connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx   = particles[i].x - particles[j].x;
+        const dy   = particles[i].y - particles[j].y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < DIST) {
+          const a = (1 - dist / DIST) * 0.22;
+          ctx.strokeStyle = `rgba(${particles[i].c},${a})`;
+          ctx.lineWidth   = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Dots
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.c},0.55)`;
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(frame);
+  }
+
+  resize();
+  spawn();
+  frame();
+
+  const ro = new ResizeObserver(() => { resize(); spawn(); });
+  ro.observe(canvas.parentElement);
+})();
 
 // ─── Smooth scroll for all anchor links ─
 document.querySelectorAll('a[href^="#"]').forEach(a => {
